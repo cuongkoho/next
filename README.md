@@ -17,3 +17,9 @@ Features:
 # Step 2: Migrate partially to NextJS
 
 # Step 3: Fully migrate to NextJS
+
+# Step 4: Apply on web.koho.ca
+
+* Routes that users can get access to directly?
+
+https://github.com/mui/material-ui/blob/master/examples/nextjs/

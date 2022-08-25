@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
-    setAmount,
+  setAmount,
   decrement,
   increment,
   incrementByAmount,
   incrementAsync,
   incrementIfOdd,
   selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+} from "./counterSlice";
+import styles from "./Counter.module.css";
 
-export function CounterDynamic() {
-    let params = useParams();
+export function CounterDynamic({ amount }: { amount?: number }) {
+  let params = useParams();
 
   const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
-    const [incrementAmount, setIncrementAmount] = useState('2');
+  const [incrementAmount, setIncrementAmount] = useState("2");
 
-    useEffect(() => {
-         if (params?.number) {
-             dispatch(setAmount(parseInt(params.number)))
-         }
-    }, [params,dispatch ])
+  useEffect(() => {
+    if (params?.number) {
+      dispatch(setAmount(parseInt(params.number)));
+    }
+    if (amount) {
+      dispatch(setAmount(amount));
+    }
+  }, [dispatch, amount]);
 
   const incrementValue = Number(incrementAmount) || 0;
 
