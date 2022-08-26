@@ -8,9 +8,9 @@ export default () => {
   const router = useRouter();
   const { amount } = router.query;
   return (
-    <Provider store={store}>
+    <>
       <h1>This page is pre-rendered but hooked into Redux</h1>
       <CounterDynamic amount={Number(amount)} />
-    </Provider>
+    </>
   );
 };

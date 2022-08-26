@@ -30,14 +30,6 @@ export const globalStyles = (
   />
 );
 
-function SafeHydrate({ children }: { children: ReactNode }) {
-  return (
-    <div suppressHydrationWarning={true}>
-      {typeof document === "undefined" ? null : children}
-    </div>
-  );
-}
-
 export const createEmotionCache = () => {
   return createCache({ key: "css", prepend: true });
 };
@@ -76,14 +68,7 @@ export default function App(props) {
     <Provider store={store}>
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={muiTheme}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/static" element={<StaticPage />} />
-              <Route path="counter" element={<Counter />} />
-              <Route path="counter/:number" element={<CounterDynamic />} />
-            </Routes>
-          </BrowserRouter>
+          <Component {...props} />
         </ThemeProvider>
       </CacheProvider>
     </Provider>
