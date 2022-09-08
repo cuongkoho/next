@@ -57,7 +57,7 @@ export const muiTheme = createTheme({
   },
 });
 
-export default function App(props) {
+export default function App(props: any) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   const [isDocumentDefined, setIsDocumentDefined] = useState(false);
